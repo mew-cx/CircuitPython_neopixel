@@ -1,0 +1,22 @@
+# .gitignore
+# Keep these files out of the CircuitPython repo:
+
+**.swp
+**~
+
+/boot_out.txt
+/.Trash*
+/.fseventsd/
+/.metadata_never_index
+/System Volume Information/
+/$RECYCLE.BIN/
+/sd/
+
+secrets*
+*.log
+
+__pycache__/
+HIDE/
+PRINT/
+
+# eof
