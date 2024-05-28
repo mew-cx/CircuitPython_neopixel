@@ -9,16 +9,15 @@ from rainbowio import colorwheel
 import neopixel
 
 pixel_pin = board.A1
-num_pixels = 155
+num_pixels = 154
 
-pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.3, auto_write=False)
+pixels = neopixel.NeoPixel(pixel_pin, num_pixels, auto_write=False)
 
 def color_chase(color, wait):
     for i in range(num_pixels):
         pixels[i] = color
         time.sleep(wait)
         pixels.show()
-    time.sleep(0.5)
 
 def rainbow_cycle(wait):
     for j in range(255):
@@ -29,6 +28,7 @@ def rainbow_cycle(wait):
         time.sleep(wait)
 
 WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
 RED = (255, 0, 0)
 YELLOW = (255, 150, 0)
 GREEN = (0, 255, 0)
@@ -39,21 +39,21 @@ PURPLE = (180, 0, 255)
 while True:
     pixels.fill(WHITE)
     pixels.show()
-    time.sleep(1)
+    time.sleep(5)
 
     pixels.fill(RED)
     pixels.show()
-    time.sleep(1)
+    time.sleep(5)
 
     pixels.fill(GREEN)
     pixels.show()
-    time.sleep(1)
+    time.sleep(5)
 
     pixels.fill(BLUE)
     pixels.show()
-    time.sleep(1)
+    time.sleep(5)
 
-    delay = 0.01
+    delay = 0
     #color_chase(RED, delay)
     color_chase(YELLOW, delay)
     #color_chase(GREEN, delay)
