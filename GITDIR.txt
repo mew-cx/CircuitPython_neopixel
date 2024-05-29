@@ -1,3 +1,5 @@
+gitdir: /home/mew/circuitpython/CircuitPython_neopixel/.git
+
 gitdir: C:/mew/gits/dust_runtime_CIRCUITPY/.git
 
 Windows: gwar brat
