@@ -15,6 +15,8 @@
 GITREPO.txt
 secrets*
 *.log
+bundle*
+CIRCUITPY
 
 __pycache__/
 HIDE/
