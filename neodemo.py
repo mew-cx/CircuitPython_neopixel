@@ -7,11 +7,17 @@ import time
 import board
 from rainbowio import colorwheel
 import neopixel
+import atexit
 
 PIXEL_PIN = board.MOSI
 NUM_PIXELS = 12
 
 pixels = neopixel.NeoPixel(PIXEL_PIN, NUM_PIXELS, auto_write=False)
+
+@atexit.register
+def shutdown():
+    pixels.fill(BLACK)
+    pixels.show()
 
 def color_chase(num_pixels, color, wait):
     for i in range(num_pixels):
