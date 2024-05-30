@@ -27,6 +27,9 @@ $(TGT): FORCE
 	git branch -vv >> $@
 	echo "}" >> $@
 
+install:
+	# TODO copy only select files or branch to CIRCUITPY device
+
 .PHONY: clean clobber nuke
 clean clobber nuke:
 	-rm -f $(TGT)
