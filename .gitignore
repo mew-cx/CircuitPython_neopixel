@@ -12,6 +12,7 @@
 /$RECYCLE.BIN/
 /sd/
 
+GITREPO.txt
 secrets*
 *.log
 
