@@ -9,15 +9,15 @@ from rainbowio import colorwheel
 import neopixel
 
 PIXEL_PIN = board.MOSI
-NUM_PIXELS = 100
+NUM_PIXELS = 12
 
-pixels = neopixel.NeoPixel(PIXEL_PIN, NUM_PIXELS, brightness=0.2, auto_write=False)
+pixels = neopixel.NeoPixel(PIXEL_PIN, NUM_PIXELS, auto_write=False)
 
 def color_chase(num_pixels, color, wait):
     for i in range(num_pixels):
         pixels[i] = color
         pixels.show()
-        #time.sleep(wait)
+        time.sleep(wait)
 
 def rainbow_cycle(num_pixels, wait):
     STEPS = 256
@@ -40,11 +40,11 @@ PURPLE = (180, 0, 255)
 while True:
     pixels.fill(BLACK)
     pixels.show()
-    time.sleep(1)
+    time.sleep(2)
 
-    #pixels.fill(WHITE)
-    #pixels.show()
-    #time.sleep(1)
+    pixels.fill(WHITE)
+    pixels.show()
+    time.sleep(3)
 
     pixels.fill(RED)
     pixels.show()
@@ -58,12 +58,19 @@ while True:
     pixels.show()
     time.sleep(1)
 
-    delay = 0
-    #color_chase(NUM_PIXELS, RED, delay)
+    delay = 0.02
+    color_chase(NUM_PIXELS, RED, delay)
     color_chase(NUM_PIXELS, YELLOW, delay)
-    #color_chase(NUM_PIXELS, GREEN, delay)
+    color_chase(NUM_PIXELS, GREEN, delay)
     color_chase(NUM_PIXELS, CYAN, delay)
-    #color_chase(NUM_PIXELS, BLUE, delay)
+    color_chase(NUM_PIXELS, BLUE, delay)
     color_chase(NUM_PIXELS, PURPLE, delay)
+    color_chase(NUM_PIXELS, BLACK, delay)
 
-    rainbow_cycle(NUM_PIXELS, 0)  # Increase the number to slow down the rainbow
+    rainbow_cycle(NUM_PIXELS, 0.005)
+
+    pixels.fill(BLACK)
+    pixels.show()
+    time.sleep(0.5)
+
+    rainbow_cycle(NUM_PIXELS, 0.001)
