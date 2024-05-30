@@ -13,7 +13,10 @@ TGT = GITREPO.txt
 .PHONY: all
 all: $(TGT)
 
-$(TGT): .git Makefile
+.PHONY: FORCE
+FORCE:
+
+$(TGT): FORCE
 	> $@
 	echo "gitdir: `git root`/.git" >> $@
 	echo "HEAD `git desc`" >> $@
