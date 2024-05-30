@@ -10,6 +10,7 @@ SHELL := bash
 
 TGT = GITREPO.txt
 
+.PHONY: all
 all: $(TGT)
 
 $(TGT): .git Makefile
@@ -23,6 +24,7 @@ $(TGT): .git Makefile
 	git branch -vv >> $@
 	echo "}" >> $@
 
+.PHONY: clean clobber nuke
 clean clobber nuke:
 	-rm -f $(TGT)
 
